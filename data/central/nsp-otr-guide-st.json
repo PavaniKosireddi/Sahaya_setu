@@ -1,0 +1,73 @@
+{
+  "id": "nsp-otr-guide-st",
+  "state": "CENTRAL",
+  "kind": "guide",
+  "category": "registration",
+  "verified": true,
+  "name": {
+    "en": "National Scholarship Portal One Time Registration (OTR) for ST students, mobile app steps"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Gives you the OTR number needed to use the National Scholarship Portal"
+    },
+    "annual_value_inr": 0
+  },
+  "eligibility": [
+    {
+      "field": "occupation",
+      "op": "in",
+      "value": [
+        "student"
+      ]
+    },
+    {
+      "field": "categories",
+      "op": "any_in",
+      "value": [
+        "ST"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "aadhaar_linked_mobile",
+      "name": {
+        "en": "Mobile number linked to your Aadhaar, plus your Aadhaar number"
+      },
+      "official_fee_inr": null
+    },
+    {
+      "id": "parent_details_email",
+      "name": {
+        "en": "Mother's name, father's name and an email ID"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "Download the NSP OTR app (by National Informatics Centre) from the Google Play Store. You need a mobile phone, internet and an Aadhaar-linked mobile number.",
+      "Tap Register, tick both boxes (read the guidelines; consent to use Aadhaar/OTR for de-duplication), then tap Next.",
+      "Enter your mobile number, tap Send OTP, enter the OTP and the captcha, then tap Verify.",
+      "Choose 'I have Aadhaar', enter your 12-digit Aadhaar number, tap Send OTP, enter the OTP and captcha, then tap Next.",
+      "Check the details shown from Aadhaar, enter your mother's name, father's name and email ID, enter the captcha and tap Next. A reference number is generated.",
+      "Log in with the reference number, tap Send OTP, enter the OTP and captcha, tap Next, then tap I Agree.",
+      "Tap Proceed for Face Authentication and keep your face inside the circle until it turns green.",
+      "Your OTR number is generated and the password is sent to your mobile number. Log in later with the OTR number and password, or with your Aadhaar and an OTP.",
+      "Only one OTR is allowed per student. A parent or guardian can generate up to two OTRs for two minor children. A student found with more than one OTR can be debarred from scholarships."
+    ]
+  },
+  "to_confirm": [
+    "This guide is published by the Tribal Welfare Department, AP, for ST students; screens may change when the app is updated"
+  ],
+  "official_url": "https://scholarships.gov.in",
+  "sources": [
+    {
+      "title": "NSP One Time Registration (OTR) step-by-step guide for ST students in the Mobile App, Tribal Welfare Department, AP",
+      "type": "official_guide",
+      "url": null
+    }
+  ],
+  "source_checked_on": "2026-10-22"
+}

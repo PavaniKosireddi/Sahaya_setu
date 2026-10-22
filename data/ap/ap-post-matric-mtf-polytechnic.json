@@ -1,0 +1,72 @@
+{
+  "id": "ap-post-matric-mtf-polytechnic",
+  "state": "AP",
+  "category": "education",
+  "verified": true,
+  "name": {
+    "en": "AP Post Matric Scholarship: Maintenance Fee (MTF), Polytechnic"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Rs.15,000 per year for food and hostel expenses"
+    },
+    "annual_value_inr": 15000
+  },
+  "eligibility": [
+    {
+      "field": "occupation",
+      "op": "in",
+      "value": [
+        "student"
+      ]
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "polytechnic"
+      ]
+    },
+    {
+      "field": "categories",
+      "op": "any_in",
+      "value": [
+        "SC",
+        "ST",
+        "BC",
+        "EBC",
+        "KAPU",
+        "MINORITY",
+        "PWD"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "mother_bank_account",
+      "name": {
+        "en": "Bank account of the student's mother (or natural guardian if the mother has passed away or is absent)"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "Apply through the Jnanabhumi portal (jnanabhumi.ap.gov.in).",
+      "The amount is credited to the mother's bank account, or to the natural guardian's account if the mother has passed away or is absent."
+    ]
+  },
+  "to_confirm": [
+    "Family income limit, native/domicile rules and required documents are not in the sources checked; confirm on jnanabhumi.ap.gov.in",
+    "Application dates change every academic year; check Jnanabhumi"
+  ],
+  "official_url": "https://jnanabhumi.ap.gov.in/",
+  "sources": [
+    {
+      "title": "Post Matric Scholarship scheme description, Jnanabhumi (Social Welfare Dept, AP)",
+      "type": "official_portal",
+      "url": "https://jnanabhumi.ap.gov.in/"
+    }
+  ],
+  "source_checked_on": "2026-10-22"
+}

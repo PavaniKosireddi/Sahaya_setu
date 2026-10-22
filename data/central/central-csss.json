@@ -1,0 +1,95 @@
+{
+  "id": "central-csss",
+  "state": "CENTRAL",
+  "category": "education",
+  "verified": true,
+  "name": {
+    "en": "Central Sector Scheme of Scholarship for College and University Students (PM-USP CSSS)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Rs.12,000 per year for graduation (first three years); Rs.20,000 per year for post-graduation. B.Tech/B.E.: Rs.12,000 for years 1 to 3 and Rs.20,000 in year 4"
+    },
+    "annual_value_inr": 12000,
+    "value_note": "Rises to Rs.20,000 per year at post-graduation level"
+  },
+  "eligibility": [
+    {
+      "field": "occupation",
+      "op": "in",
+      "value": [
+        "student"
+      ]
+    },
+    {
+      "field": "course_level",
+      "op": "in",
+      "value": [
+        "degree",
+        "postgraduate"
+      ]
+    },
+    {
+      "field": "class12_above_80th_percentile",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "field": "regular_course",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "field": "receiving_other_scholarship",
+      "op": "eq",
+      "value": false
+    },
+    {
+      "field": "family_income_inr",
+      "op": "lte",
+      "value": 450000
+    }
+  ],
+  "documents": [
+    {
+      "id": "income_certificate",
+      "name": {
+        "en": "Income certificate (required only for fresh applicants)"
+      },
+      "official_fee_inr": null
+    },
+    {
+      "id": "student_bank_account",
+      "name": {
+        "en": "Savings bank account in the student's own name (Aadhaar-seeded for DBT)"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "Register and apply online only on the National Scholarship Portal (scholarships.gov.in). Applications sent directly to the Ministry are not accepted.",
+      "Your institute verifies the application first, then the State Nodal Agency.",
+      "Renewal each year needs at least 50% marks in the annual exam and at least 75% attendance."
+    ]
+  },
+  "to_confirm": [
+    "Application window opens and closes on NSP each year; check scholarships.gov.in",
+    "Eligibility needs a Class XII percentile above 80 in your stream and board, and the course must be at an AICTE or regulator-recognised institution",
+    "Not available alongside any other scholarship, including state fee reimbursement"
+  ],
+  "official_url": "https://scholarships.gov.in",
+  "sources": [
+    {
+      "title": "PM-USP Central Sector Scheme of Scholarship for College and University Students: Guidelines (Ministry of Education, applicable 2022-23 onwards)",
+      "type": "official_guidelines",
+      "url": "https://nitkkr.ac.in/wp-content/uploads/2025/04/Central-Sector-Scheme-Of-Scholarships-For-College-And-University-Students.pdf"
+    },
+    {
+      "title": "Ministry of Education: National Scholarships page",
+      "type": "official_portal",
+      "url": "https://education.gov.in/node/255"
+    }
+  ],
+  "source_checked_on": "2026-10-22"
+}

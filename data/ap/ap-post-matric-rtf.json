@@ -1,0 +1,64 @@
+{
+  "id": "ap-post-matric-rtf",
+  "state": "AP",
+  "category": "education",
+  "verified": true,
+  "name": {
+    "en": "AP Post Matric Scholarship: Reimbursement of Tuition Fee (RTF)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Full fee reimbursement (tuition, special, other and exam fees, as fixed by the competent authorities)"
+    },
+    "annual_value_inr": null,
+    "value_note": "Amount equals your course fee, so it varies"
+  },
+  "eligibility": [
+    {
+      "field": "occupation",
+      "op": "in",
+      "value": [
+        "student"
+      ]
+    },
+    {
+      "field": "categories",
+      "op": "any_in",
+      "value": [
+        "SC",
+        "ST",
+        "BC",
+        "EBC",
+        "KAPU",
+        "MINORITY",
+        "PWD"
+      ]
+    }
+  ],
+  "documents": [],
+  "how_to_apply": {
+    "en": [
+      "Apply through the Jnanabhumi portal (jnanabhumi.ap.gov.in).",
+      "Non-SC students: the fee is paid to your college account. From academic year 2025-26 this is subject to FRS attendance in the college.",
+      "SC students: the fee amount continues to be released to the student's account, as per Government of India guidelines."
+    ]
+  },
+  "to_confirm": [
+    "Family income limit, native/domicile rules and required documents are not in the sources checked; confirm on jnanabhumi.ap.gov.in",
+    "Application dates change every academic year; check Jnanabhumi"
+  ],
+  "official_url": "https://jnanabhumi.ap.gov.in/",
+  "sources": [
+    {
+      "title": "G.O.Ms.No.87, Social Welfare (Edu.I) Department, Government of Andhra Pradesh, 20-11-2024 (RTF disbursement)",
+      "type": "official_go",
+      "url": null
+    },
+    {
+      "title": "Post Matric Scholarship scheme description, Jnanabhumi (Social Welfare Dept, AP)",
+      "type": "official_portal",
+      "url": "https://jnanabhumi.ap.gov.in/"
+    }
+  ],
+  "source_checked_on": "2026-10-22"
+}

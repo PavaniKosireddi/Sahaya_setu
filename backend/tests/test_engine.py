@@ -25,4 +25,4 @@ def test_total_value():
 
 def test_state_loading_adds_state_folder_only():
     ids = {s["id"] for s in load_schemes("AP")}
-    assert "ap-sample" in ids and "central-sample" in ids and "ts-sample" not in ids
+    assert "ap-post-matric-rtf" in ids and "central-csss" in ids and "ts-sample" not in ids

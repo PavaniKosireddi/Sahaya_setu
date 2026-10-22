@@ -27,5 +27,5 @@ cd backend && python -m pytest -q
 3. Run `python scripts/validate_data.py`. No code changes needed.
 
 ## Status
-Stage 1 done: rule engine, API, data validation, CI. Next: real AP data, React frontend, voice, deployment.
+Stage 2 done: verified AP student scheme data (see docs/SOURCES.md). Next: React frontend, voice, deployment.
 Scheme files marked `"verified": false` are placeholders.

@@ -6,6 +6,7 @@ OPS = {
     "lte": lambda a, b: a <= b,
     "gte": lambda a, b: a >= b,
     "between": lambda a, b: b[0] <= a <= b[1],
+    "any_in": lambda a, b: bool(set(a if isinstance(a, list) else [a]) & set(b)),
 }
 
 def check_rule(rule, profile):
@@ -31,7 +32,7 @@ def match(schemes, profile):
     for scheme in schemes:
         result = evaluate(scheme, profile)
         groups[result["status"]].append({"scheme": scheme, **result})
-    value = lambda item: item["scheme"].get("benefit", {}).get("annual_value_inr", 0)
+    value = lambda item: item["scheme"].get("benefit", {}).get("annual_value_inr") or 0
     groups["eligible"].sort(key=value, reverse=True)
     groups["total_annual_value_inr"] = sum(value(i) for i in groups["eligible"])
     return groups
