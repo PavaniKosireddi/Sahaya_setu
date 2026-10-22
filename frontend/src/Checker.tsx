@@ -123,7 +123,7 @@ export default function Checker({ lang, setLang, initial, onExit }: { lang: Lang
           <button className="btn ghost sm" onClick={onExit}>{t("home")}</button>
         </div>
       </div>
-      <div className="ck-body">
+      <div className={`ck-body ${result ? "wide" : ""}`}>
         {error && <p className="warn center">{t("error")}</p>}
 
         {!begun && (
@@ -196,27 +196,31 @@ function Results({ r, lang, t, state, onAnswer, onRestart, onBack }: { r: Result
   const readAll = () => speak([t("eligible"), ...names, r.total_annual_value_inr > 0 ? t("upTo").replace("{amt}", r.total_annual_value_inr.toLocaleString("en-IN")) : ""].filter(Boolean).join(". "), lang);
   return (
     <div className="results pop">
-      {r.eligible.length + r.possible.length === 0 && <div className="panel center"><p>{r.not_eligible.length ? t("noMatch") : t("noSchemes")}</p></div>}
-      {r.total_annual_value_inr > 0 && (
-        <div className="total"><span>{t("upTo").split("₹{amt}")[0]}</span><b>₹<Counter to={r.total_annual_value_inr} /></b><span>{t("upTo").split("₹{amt}")[1]}</span></div>
-      )}
-      {canSpeak() && names.length > 0 && <div className="center"><button className="btn ghost sm" onClick={readAll}>🔊 {t("v_readall")}</button> <button className="linkbtn" onClick={stopSpeaking}>{t("v_stop")}</button></div>}
-      {needQ && (
-        <div className="panel oneq">
-          <h3>{t("q_one_more")}</h3><p>{t(needQ.q)}</p>
-          <div className="opts">{needQ.opts.filter(([v]) => v !== null).map(([v, k]) => <button key={k} className="opt" onClick={() => onAnswer(needQ.key, v)}><span>{t(k)}</span></button>)}</div>
+      <aside className="side">
+        {r.total_annual_value_inr > 0 && (
+          <div className="total"><span>{t("upTo").split("₹{amt}")[0]}</span><b>₹<Counter to={r.total_annual_value_inr} /></b><span>{t("upTo").split("₹{amt}")[1]}</span></div>
+        )}
+        {canSpeak() && names.length > 0 && <div className="center"><button className="btn ghost sm" onClick={readAll}>🔊 {t("v_readall")}</button> <button className="linkbtn" onClick={stopSpeaking}>{t("v_stop")}</button></div>}
+        {needQ && (
+          <div className="panel oneq">
+            <h3>{t("q_one_more")}</h3><p>{t(needQ.q)}</p>
+            <div className="opts">{needQ.opts.filter(([v]) => v !== null).map(([v, k]) => <button key={k} className="opt" onClick={() => onAnswer(needQ.key, v)}><span>{t(k)}</span></button>)}</div>
+          </div>
+        )}
+        <Feedback t={t} state={state} lang={lang} count={r.eligible.length} />
+        <div className="actions">
+          <a className="btn" href={wa} target="_blank" rel="noreferrer">💬 {t("share")}</a>
+          <button className="btn ghost" onClick={() => window.print()}>🖨️ {t("print")}</button>
+          <button className="btn ghost" onClick={onBack}>← {t("back")}</button>
+          <button className="btn ghost" onClick={onRestart}>{t("restart")}</button>
         </div>
-      )}
-      <Group title={t("eligible")} items={r.eligible} t={t} tone="good" />
-      <Group title={t("possible")} items={r.possible} t={t} tone="warn" />
-      <Group title={t("notEligible")} items={r.not_eligible} t={t} tone="mute" />
-      <p className="small center">{t("disclaimer")}</p>
-      <Feedback t={t} state={state} lang={lang} count={r.eligible.length} />
-      <div className="actions">
-        <a className="btn" href={wa} target="_blank" rel="noreferrer">💬 {t("share")}</a>
-        <button className="btn ghost" onClick={() => window.print()}>🖨️ {t("print")}</button>
-        <button className="btn ghost" onClick={onBack}>← {t("back")}</button>
-        <button className="btn ghost" onClick={onRestart}>{t("restart")}</button>
+        <p className="small center">{t("disclaimer")}</p>
+      </aside>
+      <div className="main">
+        {r.eligible.length + r.possible.length === 0 && <div className="panel center"><p>{r.not_eligible.length ? t("noMatch") : t("noSchemes")}</p></div>}
+        <Group title={t("eligible")} items={r.eligible} t={t} tone="good" />
+        <Group title={t("possible")} items={r.possible} t={t} tone="warn" />
+        <Group title={t("notEligible")} items={r.not_eligible} t={t} tone="mute" />
       </div>
     </div>
   );
@@ -246,6 +250,7 @@ function Group({ title, items, t, tone }: { title: string; items: Item[]; t: (k:
   return (
     <section className={`grp ${tone}`}>
       <h3>{title} <span className="count">{items.length}</span></h3>
+      <div className="grp-grid">
       {items.map(({ scheme: s, missing_fields }) => (
         <article key={s.id} className={`sc ${openId === s.id ? "open" : ""}`}>
           <button className="sc-head" onClick={() => setOpenId(openId === s.id ? null : s.id)}>
@@ -264,6 +269,7 @@ function Group({ title, items, t, tone }: { title: string; items: Item[]; t: (k:
           </div></div>
         </article>
       ))}
+      </div>
     </section>
   );
 }
