@@ -2,7 +2,7 @@ export type Lang = "en" | "te" | "hi";
 export const LANGS: { code: Lang; label: string }[] = [
   { code: "te", label: "తెలుగు" }, { code: "en", label: "English" }, { code: "hi", label: "हिन्दी" },
 ];
-const en = {
+const enBase = {
   chooseState: "Choose your state", start: "Start", beta: "beta",
   q_segments: "Who are you checking for? (choose all that apply)", seg_student: "Student", seg_woman: "Woman", seg_farmer: "Farmer",
   q_level: "Which course are you studying?", iti: "ITI", poly: "Polytechnic", degree: "Degree", pg: "Post-graduation",
@@ -29,7 +29,7 @@ const en = {
   share: "Share on WhatsApp", print: "Print", moreInfo: "Needs more info",
   shareText: "Schemes I may qualify for (checked on Sahaya Setu):",
 };
-const te: typeof en = {
+const teBase: typeof enBase = {
   chooseState: "మీ రాష్ట్రాన్ని ఎంచుకోండి", start: "ప్రారంభించండి", beta: "బీటా",
   q_segments: "మీరు ఎవరి కోసం చూస్తున్నారు? (వర్తించేవన్నీ ఎంచుకోండి)", seg_student: "విద్యార్థి", seg_woman: "మహిళ", seg_farmer: "రైతు",
   q_level: "మీరు ఏ కోర్సు చదువుతున్నారు?", iti: "ఐటీఐ", poly: "పాలిటెక్నిక్", degree: "డిగ్రీ", pg: "పోస్ట్ గ్రాడ్యుయేషన్",
@@ -56,7 +56,7 @@ const te: typeof en = {
   share: "వాట్సాప్‌లో షేర్ చేయండి", print: "ప్రింట్", moreInfo: "మరింత సమాచారం అవసరం",
   shareText: "నాకు అర్హత ఉండే పథకాలు (సహాయ సేతులో తనిఖీ చేసినవి):",
 };
-const hi: typeof en = {
+const hiBase: typeof enBase = {
   chooseState: "अपना राज्य चुनें", start: "शुरू करें", beta: "बीटा",
   q_segments: "आप किसके लिए जाँच रहे हैं? (जो लागू हों सब चुनें)", seg_student: "विद्यार्थी", seg_woman: "महिला", seg_farmer: "किसान",
   q_level: "आप कौन सा कोर्स कर रहे हैं?", iti: "आईटीआई", poly: "पॉलिटेक्निक", degree: "डिग्री", pg: "पोस्ट-ग्रेजुएशन",
@@ -83,13 +83,56 @@ const hi: typeof en = {
   share: "व्हाट्सऐप पर साझा करें", print: "प्रिंट", moreInfo: "और जानकारी चाहिए",
   shareText: "जिन योजनाओं के लिए मैं पात्र हो सकता/सकती हूँ (सहाय सेतु पर जाँचा):",
 };
+
+const enV = {
+  v_listen: "Speak your answer", v_read: "Read aloud", v_stop: "Stop", v_listening: "Listening…", v_heard: "I heard",
+  v_nomatch: "Sorry, I did not catch that. Please tap an option.",
+  v_unsupported: "Voice input is not available in this browser. Please use Chrome, or tap the options.",
+  v_novoice: "Your device has no voice for this language, so it cannot read aloud. You can still tap or speak.",
+  v_auto: "Read questions aloud automatically", v_describe: "Or just tell us about yourself",
+  v_describe_ph: "Example: I am a BC student studying a degree, my family earns 2 lakh a year",
+  v_analyze: "Understand", v_understood: "We understood",
+  v_ai_off: "Describing in your own words is not set up on this server. Please use the questions.",
+  v_ai_err: "Could not understand that. Please try again or use the questions.",
+  v_readall: "Read results aloud", q_one_more: "One more question to confirm these schemes",
+  fb_q: "Was this helpful?", fb_thanks: "Thank you for your feedback!", fb_ph: "Anything we should improve? (please do not write personal details)", fb_send: "Send",
+};
+const teV: typeof enV = {
+  v_listen: "మీ సమాధానం చెప్పండి", v_read: "చదివి వినిపించు", v_stop: "ఆపు", v_listening: "వింటున్నాను…", v_heard: "నాకు వినిపించింది",
+  v_nomatch: "క్షమించండి, అర్థం కాలేదు. దయచేసి ఒక ఎంపికను నొక్కండి.",
+  v_unsupported: "ఈ బ్రౌజర్‌లో వాయిస్ ఇన్‌పుట్ లేదు. దయచేసి క్రోమ్ వాడండి లేదా ఎంపికలను నొక్కండి.",
+  v_novoice: "మీ పరికరంలో ఈ భాషకు వాయిస్ లేదు, కాబట్టి చదివి వినిపించలేదు. మీరు ఇంకా నొక్కవచ్చు లేదా మాట్లాడవచ్చు.",
+  v_auto: "ప్రశ్నలను ఆటోమేటిక్‌గా చదివి వినిపించు", v_describe: "లేదా మీ గురించి మీరే చెప్పండి",
+  v_describe_ph: "ఉదాహరణ: నేను బీసీ విద్యార్థిని, డిగ్రీ చదువుతున్నాను, మా కుటుంబ ఆదాయం ఏడాదికి 2 లక్షలు",
+  v_analyze: "అర్థం చేసుకో", v_understood: "మేము అర్థం చేసుకున్నది",
+  v_ai_off: "ఈ సర్వర్‌లో సొంత మాటల్లో చెప్పే సౌకర్యం ఏర్పాటు కాలేదు. దయచేసి ప్రశ్నలను వాడండి.",
+  v_ai_err: "అది అర్థం కాలేదు. దయచేసి మళ్లీ ప్రయత్నించండి లేదా ప్రశ్నలను వాడండి.",
+  v_readall: "ఫలితాలను చదివి వినిపించు", q_one_more: "ఈ పథకాలను నిర్ధారించడానికి మరో ప్రశ్న",
+  fb_q: "ఇది ఉపయోగపడిందా?", fb_thanks: "మీ అభిప్రాయానికి ధన్యవాదాలు!", fb_ph: "ఏమి మెరుగుపరచాలి? (దయచేసి వ్యక్తిగత వివరాలు రాయవద్దు)", fb_send: "పంపండి",
+};
+const hiV: typeof enV = {
+  v_listen: "अपना जवाब बोलें", v_read: "पढ़कर सुनाएँ", v_stop: "रोकें", v_listening: "सुन रहा हूँ…", v_heard: "मैंने सुना",
+  v_nomatch: "माफ़ कीजिए, समझ नहीं आया। कृपया कोई विकल्प दबाएँ।",
+  v_unsupported: "इस ब्राउज़र में वॉइस इनपुट उपलब्ध नहीं है। कृपया क्रोम इस्तेमाल करें या विकल्प दबाएँ।",
+  v_novoice: "आपके डिवाइस में इस भाषा की आवाज़ नहीं है, इसलिए पढ़कर नहीं सुना सकता। आप फिर भी दबा या बोल सकते हैं।",
+  v_auto: "सवाल अपने आप पढ़कर सुनाएँ", v_describe: "या अपने बारे में खुद बताइए",
+  v_describe_ph: "उदाहरण: मैं बीसी विद्यार्थी हूँ, डिग्री कर रहा हूँ, हमारे परिवार की आय सालाना 2 लाख है",
+  v_analyze: "समझें", v_understood: "हमने समझा",
+  v_ai_off: "इस सर्वर पर अपने शब्दों में बताने की सुविधा चालू नहीं है। कृपया सवालों का उपयोग करें।",
+  v_ai_err: "यह समझ नहीं आया। कृपया फिर कोशिश करें या सवालों का उपयोग करें।",
+  v_readall: "नतीजे पढ़कर सुनाएँ", q_one_more: "इन योजनाओं की पुष्टि के लिए एक और सवाल",
+  fb_q: "क्या यह उपयोगी था?", fb_thanks: "आपकी प्रतिक्रिया के लिए धन्यवाद!", fb_ph: "हमें क्या सुधारना चाहिए? (कृपया निजी जानकारी न लिखें)", fb_send: "भेजें",
+};
+const en = { ...enBase, ...enV };
+const te: typeof en = { ...teBase, ...teV };
+const hi: typeof en = { ...hiBase, ...hiV };
 export const T: Record<Lang, typeof en> = { en, te, hi };
 export type Key = keyof typeof en;
 
 // Landing page copy. Telugu/Hindi cover headings and key text; anything missing falls back to English.
 const lEn = {
   brand: "Sahaya Setu", nav_who: "Who it's for", nav_how: "How it works", nav_schemes: "Schemes", nav_faq: "FAQ", cta: "Check my schemes",
-  hero_badge: "Andhra Pradesh live · more states coming",
+  hero_badge: "Andhra Pradesh live · Telangana in beta",
   hero_title: "Find every government benefit you qualify for",
   hero_sub: "Tell us a little about yourself. Sahaya Setu shows the schemes you may get, the documents you need, and exactly what to do next, in your own language.",
   hero_cta2: "See how it works",
@@ -106,7 +149,7 @@ const lEn = {
   s3: "Get your list and next steps", s3d: "See schemes you qualify for, documents to carry, and how to apply.",
   feat_title: "Why people trust Sahaya Setu",
   f1: "Official sources", f1d: "Every scheme shows where its rules came from and the date we last checked.",
-  f2: "Your language", f2d: "Questions and answers in Telugu, Hindi and English.",
+  f2: "Speak or tap, in your language", f2d: "Answer by voice or buttons, and have results read aloud, in Telugu, Hindi and English.",
   f3: "Document checklist", f3d: "Know what to carry before you stand in a queue.",
   f4: "Private by design", f4d: "No login. We never ask for your name, Aadhaar or any ID number.",
   f5: "Honest results", f5d: "If we are unsure, we say \"need one more answer\" instead of promising something false.",
@@ -117,6 +160,7 @@ const lEn = {
   q2: "Do you store my details?", a2: "Your answers are used only to match schemes at that moment. We do not ask for your name or any ID number.",
   q3: "Which states are covered?", a3: "Andhra Pradesh is live. The system is built so that other states can be added by adding scheme data.",
   q4: "How accurate is it?", a4: "Rules come from official orders, guidelines and government portals, shown with the date we last checked. Rules can change, so please confirm on the official website.",
+  q5: "Does voice work on my phone?", a5: "Voice input works best in Chrome on Android. Read-aloud needs a Telugu or Hindi voice installed on your device. The buttons always work.",
   end_title: "Ready to see what you qualify for?", end_sub: "It takes about two minutes.",
   foot: "An independent project to help people find government schemes. Guidance only; confirm on official websites.",
   foot_src: "Data sources", foot_code: "Source code",

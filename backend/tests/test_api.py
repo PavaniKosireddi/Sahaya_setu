@@ -12,7 +12,7 @@ def test_match_ap_returns_verified_schemes():
     r = c.post("/match", json={"state": "AP", "profile": PROFILE}).json()
     assert "central-csss" in {i["scheme"]["id"] for i in r["eligible"]}
 
-def test_unverified_state_data_hidden():
+def test_only_verified_data_returned():
     r = c.post("/match", json={"state": "TS", "profile": PROFILE}).json()
     assert all(i["scheme"]["verified"] for g in ("eligible", "possible", "not_eligible") for i in r[g])
 

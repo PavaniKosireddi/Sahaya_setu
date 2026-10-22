@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sahaya-setu-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false        # set to your Vercel URL, e.g. https://sahaya-setu.vercel.app
+      - key: ANTHROPIC_API_KEY
+        sync: false        # optional: enables "describe yourself" in your own words
+      - key: PYTHON_VERSION
+        value: 3.11.9

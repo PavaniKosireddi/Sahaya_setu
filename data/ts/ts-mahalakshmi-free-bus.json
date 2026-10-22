@@ -1,0 +1,64 @@
+{
+  "id": "ts-mahalakshmi-free-bus",
+  "state": "TS",
+  "category": "women",
+  "verified": true,
+  "name": {
+    "en": "Mahalakshmi (free bus travel for women in Telangana)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Free travel on TGSRTC Palle Velugu, Express, City Ordinary and Metro Express buses within Telangana, and up to the state border on interstate services"
+    },
+    "annual_value_inr": null,
+    "value_note": "Your saving depends on how often you travel"
+  },
+  "eligibility": [
+    {
+      "field": "segments",
+      "op": "any_in",
+      "value": [
+        "woman"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "photo_id",
+      "name": {
+        "en": "A valid ID such as Aadhaar, driving licence or voter ID, to show to the conductor"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "There is no application. Board an eligible TGSRTC bus.",
+      "Show your ID to the conductor and take your zero-fare ticket."
+    ]
+  },
+  "to_confirm": [
+    "You must be a resident (domicile) of Telangana",
+    "Bus category names and the list of covered services have changed since 2023; check with TGSRTC",
+    "Other benefits announced under the Mahalakshmi guarantee are not covered here yet"
+  ],
+  "official_url": "https://en.vikaspedia.in/viewcontent/women/women-empowerment/free-bus-travel-for-women?lgn=en",
+  "source_checked_on": "2026-10-22",
+  "sources": [
+    {
+      "title": "Free bus travel for women (Vikaspedia, Govt of India)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/women/women-empowerment/free-bus-travel-for-women?lgn=en"
+    },
+    {
+      "title": "PTI report quoting the Telangana Government Order, 8 Dec 2023",
+      "type": "news_quoting_govt",
+      "url": "https://www.deccanherald.com/amp/story/india%2Ftelangana%2Ftelangana-govt-to-launch-free-bus-travel-for-women-scheme-on-december-9-2803420"
+    },
+    {
+      "title": "Deccan Chronicle: Maha Lakshmi free bus facility, ID requirements",
+      "type": "news_quoting_govt",
+      "url": "https://www.deccanchronicle.com/amp/nation/current-affairs/081223/cm-a-revanth-reddy-to-flag-off-maha-lakshmi-free-bus-facility-t.html"
+    }
+  ]
+}

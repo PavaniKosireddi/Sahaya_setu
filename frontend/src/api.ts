@@ -27,3 +27,13 @@ export async function matchSchemes(state: string, profile: Record<string, unknow
   if (!r.ok) throw new Error("match");
   return r.json();
 }
+
+export async function parseProfile(text: string, lang: string): Promise<Record<string, unknown>> {
+  const r = await fetch(`${BASE}/parse-profile`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, lang }) });
+  if (!r.ok) throw new Error(String(r.status));
+  return (await r.json()).profile;
+}
+export async function postFeedback(b: { helpful: boolean; comment: string; state: string; lang: string; eligible_count: number }) {
+  const r = await fetch(`${BASE}/feedback`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(b) });
+  if (!r.ok) throw new Error("feedback");
+}

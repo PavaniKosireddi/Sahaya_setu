@@ -10,3 +10,10 @@ jobs:
       - run: pip install -r backend/requirements.txt
       - run: python scripts/validate_data.py
       - run: cd backend && python -m pytest -q
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "20"}
+      - run: cd frontend && npm ci && npm test && npm run build

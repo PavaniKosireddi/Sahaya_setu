@@ -10,7 +10,7 @@
 | ap/ap-annadata-sukhibhava.json | Vikaspedia AP scheme page; PTI report quoting AP govt | Government summary plus news |
 | central/pmmvy.json | Vikaspedia (Ministry of WCD content); Nagaland govt pages | Government summary |
 | ap/ap-stree-shakti.json | Vikaspedia AP scheme page; news reports | Government summary plus news |
-| ts/sample-ts.json | PLACEHOLDER for the multi-state demo; hidden from users | Not verified |
+| ts/ts-mahalakshmi-free-bus.json | Vikaspedia (Govt of India); PTI report quoting the Telangana G.O. (8 Dec 2023); Deccan Chronicle | Government summary plus news quoting the G.O. |
 
 Before the final demo, replace government-summary sources with the primary guideline or G.O. where possible
 (PM-KISAN operational guidelines, PMMVY guidelines, the AP Annadata Sukhibhava G.O., the Stree Shakti G.O.).

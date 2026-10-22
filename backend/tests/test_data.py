@@ -57,5 +57,6 @@ def test_pmmvy_or_group_and_child_case():
     assert "central-pmmvy" in ids(match(load_schemes("AP"), {**WOMAN, "child_case": "later"})["not_eligible"])
     assert "central-pmmvy" in ids(match(load_schemes("AP"), {**WOMAN, "child_case": "none"})["not_eligible"])
 
-def test_stree_shakti_not_in_telangana_list():
+def test_state_specific_schemes_do_not_leak():
     assert "ap-stree-shakti" not in {s["id"] for s in load_schemes("TS")}
+    assert "ts-mahalakshmi-free-bus" not in {s["id"] for s in load_schemes("AP")}

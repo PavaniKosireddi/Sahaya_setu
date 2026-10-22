@@ -1,28 +1,33 @@
 import { useEffect, useState } from "react";
-import { Brief, getSchemes, getStats } from "./api";
+import { Brief, getSchemes, getStates, getStats, StateInfo } from "./api";
 import { FarmerArt, HeroArt, Logo, StudentArt, WomanArt } from "./art";
 import { Counter, Reveal } from "./hooks";
 import { L, LANGS, Lang, LKey } from "./i18n";
 
 type Props = { lang: Lang; setLang: (l: Lang) => void; onStart: (segments?: string[]) => void };
 const ICON: Record<string, string> = { education: "🎓", women: "👩", agriculture: "🌾", registration: "📝" };
-const FAQ: [LKey, LKey][] = [["q1", "a1"], ["q2", "a2"], ["q3", "a3"], ["q4", "a4"]];
+const FAQ: [LKey, LKey][] = [["q1", "a1"], ["q2", "a2"], ["q3", "a3"], ["q4", "a4"], ["q5", "a5"]];
 
 export default function Landing({ lang, setLang, onStart }: Props) {
   const l = (k: LKey) => L[lang][k] ?? L.en[k] ?? "";
   const [schemes, setSchemes] = useState<Brief[]>([]);
-  const [count, setCount] = useState(0);
+  const [stats, setStats] = useState<Record<string, number>>({});
+  const [states, setStates] = useState<StateInfo[]>([]);
+  const [sel, setSel] = useState("AP");
+  const count = stats[sel] ?? 0;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(0);
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
-    getSchemes("AP").then(setSchemes).catch(() => {});
-    getStats().then((s) => setCount(s.AP ?? 0)).catch(() => {});
+    getStates().then(setStates).catch(() => {});
+    getStats().then(setStats).catch(() => {});
     const on = () => setScrolled(window.scrollY > 12);
     on(); window.addEventListener("scroll", on);
     return () => window.removeEventListener("scroll", on);
   }, []);
+
+  useEffect(() => { getSchemes(sel).then(setSchemes).catch(() => setSchemes([])); }, [sel]);
 
   const go = (id: string) => { setMenu(false); document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); };
   const feats: [string, LKey, LKey][] = [["🏛️", "f1", "f1d"], ["🗣️", "f2", "f2d"], ["📄", "f3", "f3d"], ["🔒", "f4", "f4d"], ["✅", "f5", "f5d"], ["🗺️", "f6", "f6d"]];
@@ -56,7 +61,7 @@ export default function Landing({ lang, setLang, onStart }: Props) {
               <button className="btn ghost lg" onClick={() => go("how")}>{l("hero_cta2")}</button>
             </div>
             <div className="stats">
-              <div><b><Counter to={count || 10} /></b><span>{l("stat_schemes")}</span></div>
+              <div><b><Counter key={count} to={count} /></b><span>{l("stat_schemes")}</span></div>
               <div><b><Counter to={3} /></b><span>{l("stat_langs")}</span></div>
               <div><b>~<Counter to={2} /></b><span>{l("stat_min")}</span></div>
               <div><b><Counter to={0} /></b><span>{l("stat_id")}</span></div>
@@ -112,6 +117,7 @@ export default function Landing({ lang, setLang, onStart }: Props) {
       <section id="schemes" className="sec alt">
         <div className="wrap">
           <Reveal><h2 className="title">{l("schemes_title")}</h2><p className="sub">{l("schemes_sub")}</p></Reveal>
+          <div className="tabs">{states.map((s) => <button key={s.code} className={sel === s.code ? "on" : ""} onClick={() => setSel(s.code)}>{s.name.en}{s.status !== "live" && " (beta)"}</button>)}</div>
           <div className="grid3">
             {schemes.map((s, i) => (
               <Reveal key={s.id} delay={(i % 3) * 90}>
