@@ -27,7 +27,7 @@ cd backend && python -m pytest -q
 3. Run `python scripts/validate_data.py`. No code changes needed.
 
 ## Status
-Stage 2 done: verified AP student scheme data (see docs/SOURCES.md). Next: React frontend, voice, deployment.
+Stage 3 done: verified scheme data for students, women and farmers (AP + central), professional multilingual website. Next: voice input, deployment.
 Scheme files marked `"verified": false` are placeholders.
 
 ## Run the website (frontend)

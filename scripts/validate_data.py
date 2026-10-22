@@ -8,7 +8,8 @@ errors = 0
 for path in sorted(Path(__file__).resolve().parents[1].glob("data/*/*.json")):
     scheme = json.loads(path.read_text(encoding="utf-8"))
     missing = REQUIRED - scheme.keys()
-    bad_ops = [r for r in scheme.get("eligibility", []) if r.get("op") not in OPS]
+    flat = [x for r in scheme.get("eligibility", []) for x in (r["any"] if "any" in r else [r])]
+    bad_ops = [r for r in flat if r.get("op") not in OPS]
     if missing or bad_ops:
         errors += 1
         print(f"ERROR {path.name}: missing={sorted(missing)} bad_ops={bad_ops}")

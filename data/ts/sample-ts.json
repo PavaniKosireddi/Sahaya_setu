@@ -14,8 +14,8 @@
   },
   "eligibility": [
     {
-      "field": "occupation",
-      "op": "in",
+      "field": "segments",
+      "op": "any_in",
       "value": [
         "student"
       ]

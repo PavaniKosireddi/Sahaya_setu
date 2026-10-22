@@ -11,6 +11,13 @@ app.add_middleware(
     allow_methods=["*"], allow_headers=["*"],
 )
 
+def visible(state):
+    """Verified schemes only (unverified placeholders stay hidden unless SHOW_UNVERIFIED=1)."""
+    schemes = load_schemes(state)
+    if os.getenv("SHOW_UNVERIFIED") != "1":
+        schemes = [s for s in schemes if s.get("verified")]
+    return schemes
+
 @app.get("/health")
 def health():
     return {"ok": True}
@@ -24,7 +31,17 @@ def match_schemes(body: dict):
     state = body.get("state")
     if state not in {s["code"] for s in load_states()}:
         raise HTTPException(400, "Unknown state")
-    schemes = load_schemes(state)
-    if os.getenv("SHOW_UNVERIFIED") != "1":  # hide unverified placeholder data from real users
-        schemes = [s for s in schemes if s.get("verified")]
-    return match(schemes, body.get("profile", {}))
+    return match(visible(state), body.get("profile", {}))
+
+
+@app.get("/schemes/{state}")
+def list_schemes(state: str):
+    if state not in {s["code"] for s in load_states()}:
+        raise HTTPException(400, "Unknown state")
+    return [{"id": s["id"], "name": s["name"]["en"], "summary": s["benefit"]["summary"]["en"],
+             "category": s.get("category", ""), "state": s["state"], "official_url": s["official_url"]}
+            for s in visible(state) if s.get("kind") != "guide"]
+
+@app.get("/stats")
+def stats():
+    return {s["code"]: len([x for x in visible(s["code"]) if x.get("kind") != "guide"]) for s in load_states()}

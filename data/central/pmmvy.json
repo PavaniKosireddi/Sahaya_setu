@@ -1,0 +1,85 @@
+{
+  "id": "central-pmmvy",
+  "state": "CENTRAL",
+  "category": "women",
+  "verified": true,
+  "name": {
+    "en": "Pradhan Mantri Matru Vandana Yojana (PMMVY, maternity benefit)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Rs.5,000 for the first child (Rs.3,000 after antenatal check-up, Rs.2,000 after birth and 14 weeks of immunisation). Rs.6,000 for a second child if it is a girl, in one instalment"
+    },
+    "annual_value_inr": 5000,
+    "value_note": "Rs.6,000 if this is a second girl child"
+  },
+  "eligibility": [
+    {
+      "field": "segments",
+      "op": "any_in",
+      "value": [
+        "woman"
+      ]
+    },
+    {
+      "field": "child_case",
+      "op": "in",
+      "value": [
+        "first",
+        "second_girl"
+      ]
+    },
+    {
+      "any": [
+        {
+          "field": "categories",
+          "op": "any_in",
+          "value": [
+            "SC",
+            "ST",
+            "PWD"
+          ]
+        },
+        {
+          "field": "family_income_inr",
+          "op": "lte",
+          "value": 800000
+        }
+      ]
+    }
+  ],
+  "documents": [],
+  "how_to_apply": {
+    "en": [
+      "Your nearest Anganwadi worker or ASHA worker can fill the online form for you.",
+      "You can also register yourself on the PMMVY portal (pmmvy.wcd.gov.in).",
+      "For a second girl child, registration during pregnancy is mandatory.",
+      "Helpline: 1515 (9 am to 6 pm)."
+    ]
+  },
+  "to_confirm": [
+    "Other eligible groups include women with a BPL or National Food Security Act ration card, Ayushman Bharat (PMJAY) beneficiaries, e-Shram or MGNREGA job card holders, women farmers under PM-KISAN, and pregnant or lactating Anganwadi workers, Anganwadi helpers and ASHAs",
+    "Registration time limit is given as 270 days or nine months after childbirth in different sources; confirm at your Anganwadi",
+    "Required documents are not listed in the sources checked; ask your Anganwadi worker",
+    "Online portal address appears as pmmvy.wcd.gov.in in some sources and pmmvy.nic.in in others"
+  ],
+  "official_url": "https://pmmvy.wcd.gov.in",
+  "source_checked_on": "2026-10-22",
+  "sources": [
+    {
+      "title": "PMMVY (Vikaspedia, Govt of India; source: Ministry of WCD)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/social-welfare/women-and-child-development/women-development-1/pradhan-mantri-matru-vandana-yojana?lgn=en"
+    },
+    {
+      "title": "Nagaland State Social Welfare Board: PMMVY benefits",
+      "type": "news_quoting_govt",
+      "url": "https://morungexpress.com/pmmvy-benefits-for-pregnant-lactating-mothers-in-nagaland"
+    },
+    {
+      "title": "DIPR Nagaland: Mission Shakti PMMVY registration drive",
+      "type": "govt_portal_summary",
+      "url": "https://ipr.nagaland.gov.in/node/13658"
+    }
+  ]
+}

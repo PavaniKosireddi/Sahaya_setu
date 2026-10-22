@@ -1,13 +1,17 @@
 # Data sources (checked 2026-10-22)
 
-| Scheme file | Official source used |
-|---|---|
-| ap/ap-post-matric-rtf.json | G.O.Ms.No.87, Social Welfare (Edu.I) Dept, AP, 20-11-2024; Jnanabhumi scheme description |
-| ap/ap-post-matric-mtf-*.json | Jnanabhumi scheme description (MTF amounts and mother's-account rule) |
-| central/central-csss.json | PM-USP CSSS Guidelines (Ministry of Education, 2022-23 onwards); education.gov.in National Scholarships page |
-| central/nsp-otr-guide-st.json | NSP OTR mobile-app guide for ST students, Tribal Welfare Dept, AP |
-| ts/sample-ts.json | PLACEHOLDER only, used to demo the multi-state design; hidden from users |
+| Scheme file | Source used | Source quality |
+|---|---|---|
+| ap/ap-post-matric-rtf.json | G.O.Ms.No.87, Social Welfare (Edu.I) Dept, AP, 20-11-2024; Jnanabhumi scheme description | Primary (official order and portal text) |
+| ap/ap-post-matric-mtf-*.json | Jnanabhumi scheme description | Primary |
+| central/central-csss.json | PM-USP CSSS Guidelines (Ministry of Education); education.gov.in | Primary |
+| central/nsp-otr-guide-st.json | NSP OTR mobile-app guide, Tribal Welfare Dept, AP | Primary |
+| central/pm-kisan.json | Vikaspedia (Govt of India) summary of PM-KISAN website; WB and Pune govt pages | Government summary, not the primary guideline PDF |
+| ap/ap-annadata-sukhibhava.json | Vikaspedia AP scheme page; PTI report quoting AP govt | Government summary plus news |
+| central/pmmvy.json | Vikaspedia (Ministry of WCD content); Nagaland govt pages | Government summary |
+| ap/ap-stree-shakti.json | Vikaspedia AP scheme page; news reports | Government summary plus news |
+| ts/sample-ts.json | PLACEHOLDER for the multi-state demo; hidden from users | Not verified |
 
-Not yet confirmed from an official document: income limit and native/domicile rules for AP Post Matric RTF/MTF,
-required documents, and yearly application dates. These are listed under `to_confirm` in each file.
+Before the final demo, replace government-summary sources with the primary guideline or G.O. where possible
+(PM-KISAN operational guidelines, PMMVY guidelines, the AP Annadata Sukhibhava G.O., the Stree Shakti G.O.).
 Re-verify each scheme monthly and update `source_checked_on`.

@@ -1,0 +1,94 @@
+{
+  "id": "central-pm-kisan",
+  "state": "CENTRAL",
+  "category": "agriculture",
+  "verified": true,
+  "name": {
+    "en": "PM-KISAN Samman Nidhi (income support for farmer families)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Rs.6,000 per year per farmer family, paid in three instalments of Rs.2,000 every four months by direct bank transfer"
+    },
+    "annual_value_inr": 6000
+  },
+  "eligibility": [
+    {
+      "field": "segments",
+      "op": "any_in",
+      "value": [
+        "farmer"
+      ]
+    },
+    {
+      "field": "farmer_type",
+      "op": "eq",
+      "value": "landowner"
+    },
+    {
+      "field": "income_tax_payer",
+      "op": "eq",
+      "value": false
+    },
+    {
+      "field": "govt_high_status",
+      "op": "eq",
+      "value": false
+    }
+  ],
+  "documents": [
+    {
+      "id": "aadhaar_mobile",
+      "name": {
+        "en": "Aadhaar number and mobile number"
+      },
+      "official_fee_inr": null
+    },
+    {
+      "id": "bank_account",
+      "name": {
+        "en": "Bank account details (bank e-KYC is mandatory)"
+      },
+      "official_fee_inr": null
+    },
+    {
+      "id": "land_records",
+      "name": {
+        "en": "Land ownership details as recorded in the State land records"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "Visit the PM-KISAN portal (pmkisan.gov.in) or your nearest Common Service Centre.",
+      "Choose New Farmer Registration and enter Aadhaar number, mobile number and state.",
+      "Fill in personal, bank and land details as per official records.",
+      "Complete e-KYC. You can check your status on the portal's Know Your Status page."
+    ]
+  },
+  "to_confirm": [
+    "Excluded: institutional landholders, families with holders of constitutional posts, serving or retired officials (except multi-tasking/Class IV/Group D staff), pensioners with Rs.10,000 or more per month, income tax payers, and registered professionals such as doctors, engineers and lawyers",
+    "Land bought after 01-02-2019 and more than one family member claiming can cause payments to be held for verification",
+    "The State or UT government identifies eligible families, so check with your local agriculture office"
+  ],
+  "official_url": "https://pmkisan.gov.in/",
+  "source_checked_on": "2026-10-22",
+  "sources": [
+    {
+      "title": "PM-KISAN scheme page (Vikaspedia, Govt of India; source: PM-KISAN website)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/agriculture/policies-and-schemes/crops-related/pradhan-mantri-kisan-samman-nidhi?lgn=en"
+    },
+    {
+      "title": "Government of West Bengal: PM-KISAN scheme details",
+      "type": "govt_portal_summary",
+      "url": "https://wb.gov.in/government-schemes-details-pradhan-mantri-kisan-samman-nidhi.aspx"
+    },
+    {
+      "title": "Pune district website: PM-KISAN",
+      "type": "govt_portal_summary",
+      "url": "https://pune.gov.in/?p=31980"
+    }
+  ]
+}

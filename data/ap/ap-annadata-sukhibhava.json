@@ -1,0 +1,67 @@
+{
+  "id": "ap-annadata-sukhibhava",
+  "state": "AP",
+  "category": "agriculture",
+  "verified": true,
+  "name": {
+    "en": "Annadata Sukhibhava (AP state top-up for farmers)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Rs.20,000 per year in total: Rs.6,000 from PM-KISAN plus Rs.14,000 from the Andhra Pradesh government, in three instalments"
+    },
+    "annual_value_inr": 14000,
+    "value_note": "Rs.14,000 is the state top-up. Landowners also receive Rs.6,000 from PM-KISAN, making Rs.20,000"
+  },
+  "eligibility": [
+    {
+      "field": "segments",
+      "op": "any_in",
+      "value": [
+        "farmer"
+      ]
+    },
+    {
+      "field": "farmer_type",
+      "op": "in",
+      "value": [
+        "landowner",
+        "tenant"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "pmkisan_reg",
+      "name": {
+        "en": "PM-KISAN registration number (landowner farmers)"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "Landowner farmers must be registered under PM-KISAN.",
+      "Complete your e-KYC and other requirements at your nearest Rythu Seva Kendra.",
+      "Check your payment status on the Annadata Sukhibhava portal or the Mana Mitra WhatsApp governance service, or contact your district Agriculture Department officials."
+    ]
+  },
+  "to_confirm": [
+    "Sources differ on whether the scheme is for small and marginal farmers only or all farmers, and on how much tenant farmers receive; confirm at your Rythu Seva Kendra",
+    "Instalment dates change each year"
+  ],
+  "official_url": "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/annadata-sukhibhava-scheme",
+  "source_checked_on": "2026-10-22",
+  "sources": [
+    {
+      "title": "Annadata Sukhibhava scheme (Vikaspedia, Govt of India; cites AP Agriculture Department)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/annadata-sukhibhava-scheme?lgn=en"
+    },
+    {
+      "title": "PTI report quoting AP government release (29 Jul 2025)",
+      "type": "news_quoting_govt",
+      "url": "https://www.theweek.in/wire-updates/national/2025/07/29/srg6-ap-farmers-funds.html"
+    }
+  ]
+}

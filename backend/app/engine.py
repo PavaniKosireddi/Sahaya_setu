@@ -9,8 +9,16 @@ OPS = {
     "any_in": lambda a, b: bool(set(a if isinstance(a, list) else [a]) & set(b)),
 }
 
+def rule_fields(rule):
+    return [r["field"] for r in rule["any"]] if "any" in rule else [rule["field"]]
+
 def check_rule(rule, profile):
-    """True / False, or None when the profile lacks the field."""
+    """True / False, or None when the profile lacks the field. {"any": [...]} means OR."""
+    if "any" in rule:
+        results = [check_rule(r, profile) for r in rule["any"]]
+        if any(r is True for r in results):
+            return True
+        return None if any(r is None for r in results) else False
     value = profile.get(rule["field"])
     if value is None:
         return None
@@ -21,7 +29,7 @@ def evaluate(scheme, profile):
     for rule in scheme.get("eligibility", []):
         result = check_rule(rule, profile)
         if result is None:
-            unknown.append(rule["field"])
+            unknown.extend(rule_fields(rule))
         elif not result:
             failed.append(rule)
     status = "not_eligible" if failed else "possible" if unknown else "eligible"

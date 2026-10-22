@@ -1,0 +1,64 @@
+{
+  "id": "ap-stree-shakti",
+  "state": "AP",
+  "category": "women",
+  "verified": true,
+  "name": {
+    "en": "Stree Shakti (free bus travel for women in Andhra Pradesh)"
+  },
+  "benefit": {
+    "summary": {
+      "en": "Free travel anywhere in Andhra Pradesh on APSRTC Pallevelugu, Ultra Pallevelugu, City Ordinary, Express and Metro Express buses"
+    },
+    "annual_value_inr": null,
+    "value_note": "Your saving depends on how often you travel"
+  },
+  "eligibility": [
+    {
+      "field": "segments",
+      "op": "any_in",
+      "value": [
+        "woman"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "photo_id",
+      "name": {
+        "en": "One valid ID: Aadhaar, Voter ID, Ration Card or Driving Licence (to show to the conductor)"
+      },
+      "official_fee_inr": null
+    }
+  ],
+  "how_to_apply": {
+    "en": [
+      "There is no application. Board an eligible APSRTC bus within Andhra Pradesh.",
+      "Show one valid ID to the conductor and take your zero-fare ticket.",
+      "Not valid on non-stop services, chartered buses or interstate services."
+    ]
+  },
+  "to_confirm": [
+    "You must be a resident of Andhra Pradesh",
+    "The list of buses covered can change; check with APSRTC (customer care 0866-2570005)"
+  ],
+  "official_url": "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/stree-shakti-scheme?lgn=en",
+  "source_checked_on": "2026-10-22",
+  "sources": [
+    {
+      "title": "Stree Shakti scheme (Vikaspedia, Govt of India)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/stree-shakti-scheme"
+    },
+    {
+      "title": "Free bus travel for women (Vikaspedia, Govt of India)",
+      "type": "govt_portal_summary",
+      "url": "https://en.vikaspedia.in/viewcontent/women/women-empowerment/free-bus-travel-for-women"
+    },
+    {
+      "title": "Report on first anniversary, Aug 2026",
+      "type": "news_quoting_govt",
+      "url": "https://telanganatoday.com/naidu-to-take-apsrtc-bus-on-august-15-to-mark-one-year-of-stree-shakti"
+    }
+  ]
+}
