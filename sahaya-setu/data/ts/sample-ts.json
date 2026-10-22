@@ -1,0 +1,13 @@
+{
+  "id": "ts-sample", "state": "TS", "category": "education", "verified": false,
+  "name": {"en": "SAMPLE scheme ts-sample (replace with real, verified data)"},
+  "benefit": {"summary": {"en": "Placeholder benefit"}, "annual_value_inr": 12000},
+  "eligibility": [
+    {"field": "occupation", "op": "in", "value": ["student"]},
+    {"field": "family_income_band", "op": "lte", "value": 2}
+  ],
+  "documents": [{"id": "income_certificate", "where": {"en": "Placeholder"}, "official_fee_inr": 0}],
+  "how_to_apply": {"en": ["Placeholder step"]},
+  "official_url": "https://example.gov.in",
+  "source_checked_on": "2026-10-22"
+}

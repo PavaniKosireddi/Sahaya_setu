@@ -1,0 +1,4 @@
+[
+  {"code": "AP", "name": {"en": "Andhra Pradesh", "te": "ఆంధ్ర ప్రదేశ్"}, "languages": ["te", "en", "hi"], "status": "live"},
+  {"code": "TS", "name": {"en": "Telangana", "te": "తెలంగాణ"}, "languages": ["te", "en", "hi"], "status": "beta"}
+]
