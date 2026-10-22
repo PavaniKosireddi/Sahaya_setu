@@ -29,3 +29,13 @@ cd backend && python -m pytest -q
 ## Status
 Stage 2 done: verified AP student scheme data (see docs/SOURCES.md). Next: React frontend, voice, deployment.
 Scheme files marked `"verified": false` are placeholders.
+
+## Run the website (frontend)
+Needs Node.js 18+ (nodejs.org). Start the backend first (see above), then in a second terminal:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Open http://localhost:5173. To point at a deployed backend, copy `frontend/.env.example` to `frontend/.env` and set `VITE_API_URL`.
+Scheme text is currently in English; the interface (questions and labels) is in Telugu, English and Hindi.

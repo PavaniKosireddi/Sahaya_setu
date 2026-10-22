@@ -24,4 +24,7 @@ def match_schemes(body: dict):
     state = body.get("state")
     if state not in {s["code"] for s in load_states()}:
         raise HTTPException(400, "Unknown state")
-    return match(load_schemes(state), body.get("profile", {}))
+    schemes = load_schemes(state)
+    if os.getenv("SHOW_UNVERIFIED") != "1":  # hide unverified placeholder data from real users
+        schemes = [s for s in schemes if s.get("verified")]
+    return match(schemes, body.get("profile", {}))
